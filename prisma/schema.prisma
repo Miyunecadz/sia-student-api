@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model student {
+  id                Int   @id @default(autoincrement())
+  createdAt         DateTime @default(now())
+  firstname         String   @db.VarChar(50)
+  middlename        String?  @db.VarChar(50)
+  lastname          String   @db.VarChar(50)
+  purok             String?  @db.VarChar(50)
+  barangay          String   @db.VarChar(50)
+  municipality      String   @db.VarChar(50)
+  province          String   @db.VarChar(50)
+  zip_code          Int
+  mother_name       String   @db.VarChar(100)
+  mother_occupation String   @db.VarChar(100)
+  father_name       String   @db.VarChar(100)
+  father_occupation String   @db.VarChar(100)
+  course            String   @db.VarChar(80)
+  major             String   @db.VarChar(80)
+  school_id_number  String   @db.VarChar(20)
+}
